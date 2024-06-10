@@ -1,0 +1,13 @@
+{
+    "_ARRAY_DIMENSIONS": [
+        "time",
+        "ensemble",
+        "latitude",
+        "longitude"
+    ],
+    "add_offset": 0.0,
+    "long_name": "2 metre temperature",
+    "scale_factor": 1.0,
+    "standard_name": "air_temperature",
+    "units": "K"
+}

@@ -55,7 +55,7 @@ def main_train(cfg: DictConfig) -> None:
         for _, callback_cfg in cfg.callbacks.items():
             try:
                 curr_callback: pl.callbacks.Callback = instantiate(
-                    callback_cfg, dirpath=hydra_dir
+                    callback_cfg
                 )
             except TypeError:
                 curr_callback: pl.callbacks.Callback = instantiate(callback_cfg)

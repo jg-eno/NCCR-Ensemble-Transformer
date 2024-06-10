@@ -1,12 +1,12 @@
 defaults:
   - data_module: ifs_era
 
-dir: '../data/processed'
+dir: 'D:\Projects\NIOT\v1\ensemble_transformer\scripts\data\processed'
 include_vars:
   - 't2m'
   - 't_850'
   - 'gh_500'
-ens_mems: 50
+ens_mems: 10
 grid_dims:
   - 32
   - 64

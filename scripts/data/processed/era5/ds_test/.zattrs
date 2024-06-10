@@ -1,0 +1,4 @@
+{
+    "Conventions": "CF-1.6",
+    "history": "2024-06-09 07:33:56 GMT by grib_to_netcdf-2.28.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf -S param -o /cache/data0/adaptor.mars.internal-1717918435.9194095-19535-17-8ad65630-0419-495d-8bc0-498f005c6cf4.nc /cache/tmp/8ad65630-0419-495d-8bc0-498f005c6cf4-adaptor.mars.internal-1717918427.0401704-19535-12-tmp.grib"
+}

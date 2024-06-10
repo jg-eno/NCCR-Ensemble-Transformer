@@ -1,0 +1,10 @@
+{
+    "_ARRAY_DIMENSIONS": [
+        "time",
+        "ensemble",
+        "latitude",
+        "longitude"
+    ],
+    "add_offset": 0.0,
+    "scale_factor": 1.0
+}

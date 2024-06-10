@@ -37,7 +37,7 @@ def get_regridder(
         }
     )
     regridder = xe.Regridder(grid_in, grid_out, method=method,
-                             periodic=True, reuse_weights=True)
+                             periodic=True, reuse_weights=False)
     return regridder
 
 
@@ -78,13 +78,13 @@ def regrid_ds(
 def load_merge_data(era5_dir: str) -> xr.Dataset:
     ds_t2m = xr.open_dataset(
         os.path.join(era5_dir, 't2m_raw.nc')
-    ).sel(expver=1) .chunk({'time': 10})
+    ).sel() .chunk({'time': 10})
     ds_t850 = xr.open_dataset(
         os.path.join(era5_dir, 't850_raw.nc')
-    ).sel(expver=1) .chunk({'time': 10})
+    ).sel() .chunk({'time': 10})
     ds_z500 = xr.open_dataset(
         os.path.join(era5_dir, 'z500_raw.nc')
-    ).sel(expver=1) .chunk({'time': 10})
+    ).sel() .chunk({'time': 10})
     print('Got data')
     merged_ds = xr.merge([ds_z500, ds_t850, ds_t2m])
     print('Merged datasets')
