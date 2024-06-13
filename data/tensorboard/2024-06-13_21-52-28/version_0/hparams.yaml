@@ -1,0 +1,31 @@
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 0.001
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  mode: min
+  factor: 0.3
+  patience: 5
+transformer:
+  n_heads: 64
+  activation: torch.nn.ReLU
+  layer_norm: true
+  value_layer: true
+  key_activation: torch.nn.ReLU
+  reweighter:
+    _target_: ens_transformer.layers.attention.StateReweighter
+  weight_estimator:
+    _target_: ens_transformer.layers.attention.SoftmaxWeights
+embedding:
+  _target_: ens_transformer.layers.ModelEmbedding
+  n_channels:
+  - 64
+  - 64
+  - 64
+  kernel_size: 3
+  activation: torch.nn.ReLU
+in_channels: 3
+output_channels: 1
+n_transformers: 1
+learning_rate: 0.001
+loss_str: crps

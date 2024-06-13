@@ -34,9 +34,10 @@ default_request_dict = {
     "type": "pf",
     "interpolation": "bilinear",
     "grid": "5.625/5.625",
-    "area": "15/78/10/83",
+    "area": "37/68/6/98",
     "format": "netcdf"
 }
+
 
 
 param_dict = {

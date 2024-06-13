@@ -47,7 +47,7 @@ class BaseNet(pl.LightningModule):
         super().__init__()
         self.learning_rate = learning_rate
         self.example_input_array = torch.randn(
-            1, 50, in_channels, 32, 64
+            1, 10, in_channels, 32, 64
         )
         self.embedding = instantiate(embedding, in_channels=in_channels)
         self.transformers, out_channels = self._init_transformers(
@@ -119,7 +119,12 @@ class BaseNet(pl.LightningModule):
         return optimizer
 
     def forward(self, input_tensor) -> torch.Tensor:
+        print(f"Input Tensor: {input_tensor.shape}")
+        input_tensor = torch.randn(
+            1, 10, 3, 32, 64
+        )
         embedded_tensor = self.embedding(input_tensor)
+        print(f"Embedded Tensor {embedded_tensor.shape}")
         transformed_tensor = self.transformers(embedded_tensor)
         output_tensor = self.output_layer(transformed_tensor).squeeze(dim=-3)
         return output_tensor
@@ -157,6 +162,7 @@ class BaseNet(pl.LightningModule):
             batch: Tuple[torch.Tensor, torch.Tensor],
             batch_idx: int
     ) -> torch.Tensor:
+        print("VAAAAAAAAAAAAAAAAAALLLLLLLLLLLLLLLIDDDDDDDDDDD")
         in_tensor, target_tensor = batch
         output_ensemble = self(in_tensor)
         output_mean, output_std = self._estimate_mean_std(output_ensemble)
