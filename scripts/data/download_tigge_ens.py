@@ -33,8 +33,8 @@ default_request_dict = {
     "time": "00:00:00/12:00:00",
     "type": "pf",
     "interpolation": "bilinear",
-    "grid": "5.625/5.625",
-    "area": "37/68/6/98",
+    "grid": "0.25/0.25",
+    "area": "31.25/75.25/26.25/80.25",
     "format": "netcdf"
 }
 

@@ -89,7 +89,7 @@ class TransformerNet(BaseNet):
             key_activation=cfg['key_activation']
         )
         if cfg['layer_norm']:
-            layer_norm = torch.nn.LayerNorm([n_channels, 32, 64])
+            layer_norm = torch.nn.LayerNorm([n_channels, 21, 21])
             value_layer = torch.nn.Sequential(layer_norm, value_layer)
             key_layer = torch.nn.Sequential(layer_norm, key_layer)
             query_layer = torch.nn.Sequential(layer_norm, query_layer)

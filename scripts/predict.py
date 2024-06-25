@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 parser = argparse.ArgumentParser(description='Predict a dataset with trained '
                                              'models')
 parser.add_argument(
-    '--data_dir', type=str, default='../data/processed',
+    '--data_dir', type=str, default='../scripts/data/processed',
     help='The trainings data is stored in this directory, default: '
          '../data/processed'
 )
@@ -98,6 +98,7 @@ def predict_dataset(args: argparse.Namespace):
         with torch.no_grad():
             prediction.append(ens_net(ifs_batch).cpu())
     prediction = torch.cat(prediction, dim=0)
+    print(prediction)
 
     if isinstance(ens_net, PPNNet):
         output_mean, output_std = ens_net._estimate_mean_std(prediction)
@@ -109,6 +110,7 @@ def predict_dataset(args: argparse.Namespace):
         )
     else:
         template_ds = data_module.ds_test.ifs.sel(var_name='t2m')
+        print(template_ds)
         output_dataset = xr.Dataset(
             {
                 'mean': data_module.ds_test.era5.copy(
@@ -117,9 +119,9 @@ def predict_dataset(args: argparse.Namespace):
                 'stddev': data_module.ds_test.era5.copy(
                     data=prediction.numpy().std(axis=1, ddof=1)
                 ),
-                'members': template_ds.copy(data=prediction.numpy())
             }
         )
+    #print(output_dataset)
 
     save_path = os.path.join(args.store_path, '{0:s}.nc'.format(args.exp_name))
     save_dir = os.path.dirname(os.path.realpath(save_path))

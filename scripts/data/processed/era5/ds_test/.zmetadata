@@ -1,0 +1,124 @@
+{
+    "metadata": {
+        ".zattrs": {
+            "Conventions": "CF-1.6",
+            "history": "2024-06-19 16:13:06 GMT by grib_to_netcdf-2.28.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf -S param -o /cache/data9/adaptor.mars.internal-1718813586.4583247-13398-6-0b027483-e712-4e02-b8e0-ddee85cba8aa.nc /cache/tmp/0b027483-e712-4e02-b8e0-ddee85cba8aa-adaptor.mars.internal-1718813582.0267248-13398-4-tmp.grib"
+        },
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "latitude/.zarray": {
+            "chunks": [
+                21
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                21
+            ],
+            "zarr_format": 2
+        },
+        "latitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "latitude"
+            ]
+        },
+        "longitude/.zarray": {
+            "chunks": [
+                21
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                21
+            ],
+            "zarr_format": 2
+        },
+        "longitude/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "longitude"
+            ]
+        },
+        "t2m/.zarray": {
+            "chunks": [
+                2,
+                21,
+                21
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                58,
+                21,
+                21
+            ],
+            "zarr_format": 2
+        },
+        "t2m/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time",
+                "latitude",
+                "longitude"
+            ],
+            "add_offset": 0.0,
+            "long_name": "2 metre temperature",
+            "scale_factor": 1.0,
+            "units": "K"
+        },
+        "time/.zarray": {
+            "chunks": [
+                58
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i4",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                58
+            ],
+            "zarr_format": 2
+        },
+        "time/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "time"
+            ],
+            "calendar": "gregorian",
+            "units": "hours since 1900-01-01"
+        }
+    },
+    "zarr_consolidated_format": 1
+}

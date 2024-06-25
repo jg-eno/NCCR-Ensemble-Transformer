@@ -1,0 +1,4 @@
+# packages in environment at C:\Users\haris\miniconda3\envs\torch:
+#
+# Name                    Version                   Build  Channel
+

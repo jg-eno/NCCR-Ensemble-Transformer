@@ -62,7 +62,9 @@ def main_train(cfg: DictConfig) -> None:
             callbacks.append(curr_callback)
     else:
         callbacks = None
-
+    
+    print(callbacks)
+    
     training_logger = None
     if cfg.logger is not None:
         for _, logger_cfg in cfg.logger.items():
@@ -77,6 +79,7 @@ def main_train(cfg: DictConfig) -> None:
     )
 
     trainer.fit(model=network, datamodule=data_module)
+    print("Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
 
 
 if __name__ == '__main__':

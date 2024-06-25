@@ -1,4 +1,4 @@
 {
     "Conventions": "CF-1.6",
-    "history": "2024-06-12 07:50:10 GMT by grib_to_netcdf-2.28.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf -S param -o /cache/data4/adaptor.mars.internal-1718178609.9055555-26062-12-8718103d-32bc-40a0-a63a-197d9ad70bd2.nc /cache/tmp/8718103d-32bc-40a0-a63a-197d9ad70bd2-adaptor.mars.internal-1718178606.9112875-26062-7-tmp.grib"
+    "history": "2024-06-19 16:13:06 GMT by grib_to_netcdf-2.28.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf -S param -o /cache/data9/adaptor.mars.internal-1718813586.4583247-13398-6-0b027483-e712-4e02-b8e0-ddee85cba8aa.nc /cache/tmp/0b027483-e712-4e02-b8e0-ddee85cba8aa-adaptor.mars.internal-1718813582.0267248-13398-4-tmp.grib"
 }

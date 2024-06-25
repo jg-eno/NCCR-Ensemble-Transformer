@@ -1,4 +1,1 @@
-{
-    "Conventions": "CF-1.6",
-    "history": "2024-06-10 09:34:24 GMT by grib_to_netcdf-2.33.2: /opt/ecmwf/mars-client/bin/grib_to_netcdf /data/scratch/public/blue/04/20240610-0930/62/_mars-bol-webmars-public-svc-blue-003-54342865b81b2c5492b2b48959cd1afc-2Cuv8K.grib -o /data/scratch/public/blue/01/20240610-0930/5b/_grib2netcdf-bol-webmars-public-svc-blue-007-94cc8f88d4868f71816187936ef374f7-hFK68x.nc -utime"
-}
+{}

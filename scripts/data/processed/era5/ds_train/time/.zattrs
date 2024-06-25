@@ -2,7 +2,6 @@
     "_ARRAY_DIMENSIONS": [
         "time"
     ],
-    "calendar": "proleptic_gregorian",
-    "long_name": "time",
-    "units": "hours since 2023-12-01"
+    "calendar": "gregorian",
+    "units": "hours since 1900-01-01"
 }

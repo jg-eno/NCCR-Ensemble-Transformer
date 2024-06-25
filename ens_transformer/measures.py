@@ -27,7 +27,7 @@ import numpy as np
 
 _frac_sqrt_pi = 1 / np.sqrt(np.pi)
 _normal_dist = torch.distributions.Normal(0., 1.)
-_default_lats = np.linspace(-87.1875, 87.1875, num=32)
+_default_lats = np.linspace(26.375, 31.375, num=21)
 
 
 def crps_loss(

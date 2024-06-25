@@ -32,11 +32,9 @@ class EarthPadding(torch.nn.Module):
         self.pad_size = pad_size
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        print(self.pad_size)
         lon_left = x[..., -self.pad_size:]
         lon_right = x[..., :self.pad_size]
         lon_padded = torch.cat([lon_left, x, lon_right], dim=-1)
         lat_zeros = torch.zeros_like(lon_padded[..., -self.pad_size:, :])
         lat_padded = torch.cat([lat_zeros, lon_padded, lat_zeros], dim=-2)
-        print(f"The padded In_Tensor:{lat_padded.shape}")
         return lat_padded

@@ -28,13 +28,9 @@ class EnsembleWrapper(torch.nn.Module):
     def __init__(self, base_layer: torch.nn.Module):
         super().__init__()
         self.base_layer = base_layer
-        self.a = 0
 
     def forward(self, in_tensor: torch.Tensor) -> torch.Tensor:
-        self.a+=1
         in_tensor_batched = ens_to_batch(in_tensor)
-        print(f"No of Steps: {self.a}")
-        print(f"Batched In tensor {in_tensor_batched.shape}")
         modified_tensor = self.base_layer(in_tensor_batched)
         out_tensor = split_batch_ens(modified_tensor, in_tensor)
         return out_tensor

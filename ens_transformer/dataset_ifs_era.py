@@ -45,7 +45,6 @@ class IFSERADataset(Dataset):
         self.subsample_size = subsample_size
         self.era5 = self.get_era5()
         self.ifs = self.get_ifs()
-        print(len(self.era5))
 
     def get_era5(self) -> xr.DataArray:
         ds_era = xr.open_zarr(self.era_path)['t2m']

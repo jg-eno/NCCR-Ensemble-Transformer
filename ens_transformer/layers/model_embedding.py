@@ -53,6 +53,5 @@ class ModelEmbedding(torch.nn.Module):
         )
 
     def forward(self, in_tensor: torch.Tensor) -> torch.Tensor:
-        print(f"Model Embedding in_tensor: {in_tensor.shape}")
         out_tensor = self.net(in_tensor)
         return out_tensor

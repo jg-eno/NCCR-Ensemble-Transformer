@@ -32,8 +32,8 @@ def get_regridder(
     import xesmf as xe
     grid_out = xr.Dataset(
         {
-            'lat': (['lat'], np.arange(-90+out_res/2, 90, out_res)),
-            'lon': (['lon'], np.arange(0, 360, out_res)),
+            'lat': (['lat'], np.arange(26.25+out_res/2, 31.25+out_res, out_res)),
+            'lon': (['lon'], np.arange(75.25, 80.25+out_res, out_res)),
         }
     )
     regridder = xe.Regridder(grid_in, grid_out, method=method,
@@ -68,7 +68,7 @@ def regrid_ds(
 ) -> Union[xr.Dataset, None]:
     if ds_ens is not None:
         grid_in = ds_ens[['lat', 'lon']]
-        regridder = get_regridder(grid_in, out_res=5.625)
+        regridder = get_regridder(grid_in, out_res=0.25)
         ds_regridded = _regrid_loop(regridder, ds_ens, chunk_size)
     else:
         ds_regridded = None

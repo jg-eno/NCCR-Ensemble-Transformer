@@ -1,0 +1,7 @@
+gridtype = longitudelatitude
+xsize = 32
+ysize = 64
+xfirst = 6
+xinc = 0.25
+yfirst = 68
+yinc = 0.25
