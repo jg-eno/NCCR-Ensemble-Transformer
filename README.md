@@ -1,39 +1,29 @@
-Self-Attentive Ensemble Transformer
-===================================
+# Cold Wave Analysis using Self-Attentive Ensemble Transformer
+
 Representing Ensemble Interactions in Neural Networks for Earth System Models
----
 
-![front_image](https://user-images.githubusercontent.com/17099005/122655730-05859d00-d155-11eb-9096-db106b34b3fe.png)
-
-If you are using these scripts and the repository, please cite:
-
-> Tobias Sebastian Finn, 2021. Self-Attentive Ensemble Transformer: 
-> Representing Ensemble Interactions in Neural Networks for Earth System 
-> Models. ArXiv: https://arxiv.org/abs/2106.13924
---------
-
-This project and repository is dedicated to enable processing of ensemble data 
-for Earth system models with neural networks. 
+This project and repository is dedicated to enable processing of ensemble data
+for Earth system models with neural networks.
 Based on ideas from self-attention and ensemble data assimilation, specifically
-the ensemble Kalman filter, this repostory includes modules for the 
+the ensemble Kalman filter, this repostory includes modules for the
 self-attentive ensemble transformer.
-The ensemble transformer is a novel type of neural network to process 
-ensemble data without a parametric assumption, as it is usually done in 
+The ensemble transformer is a novel type of neural network to process
+ensemble data without a parametric assumption, as it is usually done in
 post-processing or Model Output Statistics.
-With this repo, it is possible to compare the transformer with other models, 
-like a parametric approach similar to [[Rasp & Lerch 2018]](#rasp).
 
-The scripts and module is written in PyTorch [[1]](#1), Pytorch lightning [
-[2]](#2) and 
-configured with Hydra [[3]](#3).
+We use this Model Architecture to improve cold wave analysis.
+
+The scripts and module is written in PyTorch , Pytorch lightning and
+configured with Hydra.
 
 The folder structure is the following:
+
 ```
 .
 |-- configs            # The hydra config scripts.
 |-- data               # Storage of the data
 |   |-- interim        # Data that is included within the repo
-# The experiment data (the used configs for all experiments can be found in 
+# The experiment data (the used configs for all experiments can be found in
 # sub directories and the hydra folder.
 |   |-- models         # The trained models will be stored here
 |   |-- processed      # The processed data is stored here
@@ -59,36 +49,41 @@ The folder structure is the following:
 |-- setup.py           # The setup.py to install the ens_transformer modules
 |-- used_env.yml       # The used conda environment with pinned versions
 ```
-In almost all scripts only relative directories are used to reference the 
+
+In almost all scripts only relative directories are used to reference the
 data and models.
 
-As a first step the ERA5 data has to be downloaded from [[4]](#4). All other 
+As a first step the ERA5 data has to be downloaded from . All other
 scripts to pre-process the data can be found in `scripts/data/`.
 The data raw model data to be put into `scripts/data/raw`.
 
-Afterwards, the `scripts/train.py` script can be used to train the networks.
-Specific options can be overwritten via Hydra syntax [[3]](#3).
-To reproduce networks from the paper different model configurations are 
-stored under `data/models/*/hydra/config.yaml`.
-These files can be then used to rerun the experiment.
-The subfolder `data/models/subsampling` was used for the subsampling experiments.
-The subfolder `data/models/baseline_scaling` was used for the scaling 
-experiments with the baseline models.
-The subfolder `data/models/transformer_scaling` was used for the scaling 
-experiments with the transformer networks.
+To download IFS dataset, use the script, `download_tigge.py` and specify
+the required arguments.
 
-The front image shows the attention map of one single attention head within 
-the first layer of the transformer scaling experiment with 5 attention 
-layers for 2019-09-01 12:00 UTC. Red colors indicate regions with high 
-importance for the attention, whereas blueish colors show regions with low and
-negative importance for the attention. This particular attention head is 
-apparently activated by regions below the freezing level.
+To pre-process the data, Follow the below steps:
 
-If you have further questions, please feel free to contact me or to create a 
-GitHub issue.
+1. Merge and regrid the ERA5 files of induvidual variables(t2m, z500,
+   t850) using `regrid_merge_era5.py` to match the downloaded resolution of ifs.
+2. Then run `process_process_era5.ipynb` to do a train, test split and
+   save it locally.
+3. Then run `process_ecmwf.ipynb` to do a train, test split and save it
+   locally.
 
---------
+   Afterwards, the `scripts/train.py` script can be used to train the networks.
+   Specific options can be overwritten via Hydra syntax.
+   To reproduce networks from the paper different model configurations are
+   stored under `data/models/*/hydra/config.yaml`.
+   These files can be then used to rerun the experiment.
+   The subfolder `data/models/subsampling` was used for the subsampling experiments.
+   The subfolder `data/models/baseline_scaling` was used for the scaling
+   experiments with the baseline models.
+   The subfolder `data/models/transformer_scaling` was used for the scaling
+   experiments with the transformer networks.
+
+---
+
 ## References
+
 <a id="1">[1]</a> https://pytorch.org/
 
 <a id="2">[2]</a> https://www.pytorchlightning.ai/
@@ -97,11 +92,9 @@ GitHub issue.
 
 <a id="4">[4]</a> https://cds.climate.copernicus.eu/
 
-<a id="rasp">[Rasp & Lerch 2018]</a> Rasp, Stephan, and Sebastian Lerch. 
-"Neural Networks for Postprocessing Ensemble Weather Forecasts", Monthly 
+<a id="rasp">[Rasp & Lerch 2018]</a> Rasp, Stephan, and Sebastian Lerch.
+"Neural Networks for Postprocessing Ensemble Weather Forecasts", Monthly
 Weather Review 146, 11 (2018): 3885-3900,
 https://doi.org/10.1175/MWR-D-18-0187.1
 
-
---------
-<p><small>Project based on the <a target="_blank" href="https://github.com/jbusecke/cookiecutter-science-project">cookiecutter science project template</a>.</small></p>
+---
