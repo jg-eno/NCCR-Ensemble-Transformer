@@ -80,6 +80,21 @@ To pre-process the data, Follow the below steps:
    The subfolder `data/models/transformer_scaling` was used for the scaling
    experiments with the transformer networks.
 
+   Inorder to plot the graphs and check for the accuracy and occurances of cold waves follow the below steps:
+
+   1. Open the `Cold_Wave_Predictor.py` in the `Cold_Wave_Predictor` folder.
+   2. Move the files that are required for the Climatology Temperature calculation(1990-2023.nc) into the Cold_Wave_Predictor folder.
+      Requirements for these files are :
+      a. 6°N 37°N 68°E 98°E
+      b.Time-Stamps : 00 , 12
+      c.Variables : t2m
+      d.Pressure Levels : sfc
+      e.Scale : 0.25
+      f.Name all these files as {Year}.nc
+   3. Move the Prediction file into the same folder and give it's name to line 30 in `Cold_Wave_Predictor.py`
+   4. Now run the file and you will get a plot for the month of December 2023 (This plot is made for the central grid of Delhi `latitude=28.75,longitude=77.75`).
+   5. You can also try experimenting the `T_current_min` to `T_current_mean` to get a better idea.
+   6. You can also try plotting the raw ensemble members using plt.plot.
 ---
 
 ## References
